@@ -10,6 +10,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -26,6 +27,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     header h1 {
@@ -38,6 +42,10 @@
       text-decoration: none;
       color: #111;
       font-weight: 500;
+    }
+
+    section {
+      padding: 60px 40px;
     }
 
     .hero {
@@ -73,21 +81,36 @@
       text-decoration: none;
     }
 
-    .about {
-      padding: 60px 40px;
-      background-color: #fff;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
       text-align: center;
     }
 
-    .about h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    .about, .ourwork {
+      background-color: #fff;
     }
 
-    .about p {
+    .about p, .ourwork p {
       max-width: 700px;
       margin: 0 auto;
       font-size: 1rem;
+      text-align: center;
+    }
+
+    .ourwork-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .ourwork-gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     footer {
@@ -104,19 +127,30 @@
   <header>
     <h1>Wol Ruflo Studio</h1>
     <nav>
+      <a href="#home">Home</a>
+      <a href="#ourwork">Our Work</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <h2>Innovative, Context-Driven Architecture</h2>
     <p>Designs that blend functionality, sustainability, and aesthetics — built for the future, grounded in context.</p>
-    <a href="#about" class="btn">Learn More</a>
+    <a href="#ourwork" class="btn">Explore Our Work</a>
+  </section>
+
+  <section class="ourwork" id="ourwork">
+    <h3 class="section-title">Our Work</h3>
+    <p>We specialize in diverse architectural projects — from sustainable homes and urban developments to cultural landmarks. Here's a glimpse of what we do:</p>
+    <div class="ourwork-gallery">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Work 1">
+      <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=600&q=80" alt="Work 2">
+      <img src="https://images.unsplash.com/photo-1529429611273-4a5b7f5e7481?auto=format&fit=crop&w=600&q=80" alt="Work 3">
+    </div>
   </section>
 
   <section class="about" id="about">
-    <h3>About Wol Ruflo Studio</h3>
+    <h3 class="section-title">About Wol Ruflo Studio</h3>
     <p>We are an architectural firm committed to designing spaces that are inspired by their surroundings, built for people, and made to last. Our work spans residential, commercial, and cultural architecture — always rooted in thoughtful design principles and a deep respect for the environment.</p>
   </section>
 
