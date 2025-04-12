@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wol Ruflo Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -37,11 +37,50 @@
       font-weight: 600;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
     nav a {
       margin-left: 20px;
       text-decoration: none;
       color: #111;
       font-weight: 500;
+      position: relative;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 200px;
+      border-radius: 4px;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 16px;
+      color: #111;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown-trigger {
+      position: relative;
+    }
+
+    .dropdown-trigger:hover .dropdown {
+      display: block;
     }
 
     section {
@@ -160,7 +199,14 @@
     <h1>Wol Ruflo Studio</h1>
     <nav>
       <a href="#home">Home</a>
-      <a href="#ourwork">Our Work</a>
+      <div class="dropdown-trigger">
+        <a href="#ourwork">Our Work</a>
+        <div class="dropdown">
+          <a href="#" id="arch-link">ARCHITECTURE</a>
+          <a href="#" id="interior-link">INTERIOR DESIGN</a>
+          <a href="#" id="manage-link">PROJECT MANAGEMENT</a>
+        </div>
+      </div>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -201,6 +247,7 @@
   <footer>
     © 2025 Wol Ruflo Studio — All rights reserved.
   </footer>
+<script type="module" src="./src/App.js"></script>
 
 </body>
 </html>
