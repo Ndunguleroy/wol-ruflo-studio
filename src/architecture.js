@@ -44,10 +44,15 @@ function removeDynamicSections() {
   });
   
   // Restore when main nav links are clicked
-  ['home', 'ourwork', 'about', 'contact'].forEach(id => {
-    document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
-      removeDynamicSections();
-      restoreMainSections();
-    });
+ ['home', 'ourwork', 'about', 'contact'].forEach(id => {
+  document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
+    removeDynamicSections();
+    restoreMainSections();
+    
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
+});
+
   
