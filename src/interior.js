@@ -43,7 +43,7 @@ function addInteriorStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section'];
+  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
   ids.forEach(id => {
     document.getElementById(id)?.remove();
   });
@@ -65,7 +65,7 @@ document.getElementById('interior-link')?.addEventListener('click', (e) => {
   interiorSection.className = 'content-section';
 
   interiorSection.innerHTML = `
-    <h3 class="section-title">Interior Design </h3>
+    <h3 class="section-title">Interior Design</h3>
     <p>
       Our interior design work captures the soul of a space — where every surface, material, and light source is considered for both beauty and purpose.
     </p>

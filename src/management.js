@@ -43,7 +43,7 @@ function addManagementStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section'];
+  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
   ids.forEach(id => {
     document.getElementById(id)?.remove();
   });
