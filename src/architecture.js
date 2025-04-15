@@ -43,7 +43,7 @@ function addArchitectureStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section'];
+  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
   ids.forEach(id => {
     document.getElementById(id)?.remove();
   });
@@ -65,7 +65,7 @@ document.getElementById('arch-link')?.addEventListener('click', (e) => {
   archSection.className = 'content-section';
 
   archSection.innerHTML = `
-    <h3 class="section-title">Architecture </h3>
+    <h3 class="section-title">Architecture</h3>
     <p>
       A curated showcase of our most compelling architectural work — from contemporary residential homes to civic landmarks designed with sustainability and context in mind.
     </p>
@@ -84,7 +84,7 @@ document.getElementById('arch-link')?.addEventListener('click', (e) => {
   document.body.insertBefore(archSection, document.querySelector('footer'));
 });
 
-// Restore when main nav links are clicked
+// Restore default sections when main nav links are clicked
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
   document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
     removeDynamicSections();
