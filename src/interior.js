@@ -3,6 +3,13 @@
 function addInteriorStyles() {
   const style = document.createElement('style');
   style.textContent = `
+    #interior-top-image {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+
     #interior-section {
       padding: 60px 40px;
       background-color: #fff;
@@ -43,9 +50,18 @@ function addInteriorStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
-  ids.forEach(id => {
-    document.getElementById(id)?.remove();
+  const idsToRemove = [
+    'architecture-top-image',
+    'architecture-section',
+    'interior-top-image',
+    'interior-section',
+    'management-top-image',
+    'management-section',
+    'projects-section'
+  ];
+  idsToRemove.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.remove();
   });
 }
 
@@ -59,6 +75,11 @@ document.getElementById('interior-link')?.addEventListener('click', (e) => {
   e.preventDefault();
   removeDynamicSections();
   addInteriorStyles();
+
+  const topImage = document.createElement('img');
+  topImage.id = 'interior-top-image';
+  topImage.src = 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=1500&q=80';
+  topImage.alt = 'Interior Banner';
 
   const interiorSection = document.createElement('section');
   interiorSection.id = 'interior-section';
@@ -81,7 +102,9 @@ document.getElementById('interior-link')?.addEventListener('click', (e) => {
     if (!sec.id.includes('-section')) sec.style.display = 'none';
   });
 
-  document.body.insertBefore(interiorSection, document.querySelector('footer'));
+  const footer = document.querySelector('footer');
+  document.body.insertBefore(topImage, footer);
+  document.body.insertBefore(interiorSection, footer);
 });
 
 // Restore when main nav links are clicked

@@ -3,6 +3,13 @@
 function addManagementStyles() {
   const style = document.createElement('style');
   style.textContent = `
+    #management-top-image {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+
     #management-section {
       padding: 60px 40px;
       background-color: #fff;
@@ -43,10 +50,13 @@ function addManagementStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
-  ids.forEach(id => {
-    document.getElementById(id)?.remove();
-  });
+  const ids = [
+    'architecture-top-image', 'architecture-section',
+    'interior-top-image', 'interior-section',
+    'management-top-image', 'management-section',
+    'projects-section'
+  ];
+  ids.forEach(id => document.getElementById(id)?.remove());
 }
 
 function restoreMainSections() {
@@ -59,6 +69,11 @@ document.getElementById('manage-link')?.addEventListener('click', (e) => {
   e.preventDefault();
   removeDynamicSections();
   addManagementStyles();
+
+  const topImage = document.createElement('img');
+  topImage.id = 'management-top-image';
+  topImage.src = 'https://imgs.search.brave.com/7QB8xqFGlkg5q_yEe9xmT46oy7D8qf9BLk3PWcDUVT8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzg0Lzc3Lzk4/LzM2MF9GXzE4NDc3/OTg4MF9YWnphVG9D/QktqYVp1UXJyVDVI/YXd4M21Oc1F0MG4z/Ti5qcGc';
+  topImage.alt = 'Management Banner';
 
   const manageSection = document.createElement('section');
   manageSection.id = 'management-section';
@@ -76,15 +91,15 @@ document.getElementById('manage-link')?.addEventListener('click', (e) => {
     </div>
   `;
 
-  // Hide other default sections
   document.querySelectorAll('section').forEach(sec => {
     if (!sec.id.includes('-section')) sec.style.display = 'none';
   });
 
-  document.body.insertBefore(manageSection, document.querySelector('footer'));
+  const footer = document.querySelector('footer');
+  document.body.insertBefore(topImage, footer);
+  document.body.insertBefore(manageSection, footer);
 });
 
-// Restore default content on nav links
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
   document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
     removeDynamicSections();

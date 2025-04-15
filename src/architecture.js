@@ -3,6 +3,13 @@
 function addArchitectureStyles() {
   const style = document.createElement('style');
   style.textContent = `
+    #architecture-top-image {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+
     #architecture-section {
       padding: 60px 40px;
       background-color: #fff;
@@ -43,10 +50,13 @@ function addArchitectureStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
-  ids.forEach(id => {
-    document.getElementById(id)?.remove();
-  });
+  const ids = [
+    'architecture-top-image', 'architecture-section',
+    'interior-top-image', 'interior-section',
+    'management-top-image', 'management-section',
+    'projects-section'
+  ];
+  ids.forEach(id => document.getElementById(id)?.remove());
 }
 
 function restoreMainSections() {
@@ -60,31 +70,33 @@ document.getElementById('arch-link')?.addEventListener('click', (e) => {
   removeDynamicSections();
   addArchitectureStyles();
 
-  const archSection = document.createElement('section');
-  archSection.id = 'architecture-section';
-  archSection.className = 'content-section';
+  const topImage = document.createElement('img');
+  topImage.id = 'architecture-top-image';
+  topImage.src = 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1500&q=80';
+  topImage.alt = 'Architecture Banner';
 
-  archSection.innerHTML = `
+  const architectureSection = document.createElement('section');
+  architectureSection.id = 'architecture-section';
+  architectureSection.className = 'content-section';
+  architectureSection.innerHTML = `
     <h3 class="section-title">Architecture</h3>
-    <p>
-      A curated showcase of our most compelling architectural work — from contemporary residential homes to civic landmarks designed with sustainability and context in mind.
-    </p>
+    <p>We design modern architecture with a deep respect for context and sustainability.</p>
     <div class="ourwork-gallery">
-      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Project 1" />
-      <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=600&q=80" alt="Project 2" />
-      <img src="https://images.unsplash.com/photo-1529429611273-4a5b7f5e7481?auto=format&fit=crop&w=600&q=80" alt="Project 3" />
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Architecture 1" />
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Architecture 2" />
+      <img src="https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=600&q=80" alt="Architecture 3" />
     </div>
   `;
 
-  // Hide other default sections
   document.querySelectorAll('section').forEach(sec => {
     if (!sec.id.includes('-section')) sec.style.display = 'none';
   });
 
-  document.body.insertBefore(archSection, document.querySelector('footer'));
+  const footer = document.querySelector('footer');
+  document.body.insertBefore(topImage, footer);
+  document.body.insertBefore(architectureSection, footer);
 });
 
-// Restore default sections when main nav links are clicked
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
   document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
     removeDynamicSections();
