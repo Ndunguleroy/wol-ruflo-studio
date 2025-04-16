@@ -255,6 +255,53 @@
   color: #333;
   line-height: 1.6;
 }
+
+.latest-news {
+      background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='0' x2='200' y2='200' stroke='%23ccc' stroke-width='4'/%3E%3Cline x1='200' y1='0' x2='0' y2='200' stroke='%23bbb' stroke-width='6'/%3E%3Cline x1='100' y1='0' x2='100' y2='200' stroke='%23ddd' stroke-width='5'/%3E%3Cline x1='0' y1='100' x2='200' y2='100' stroke='%23eee' stroke-width='3'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      padding: 60px 40px;
+    }
+
+    .latest-news p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .news-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .news-card {
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-card h4 {
+      font-size: 1.1rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .news-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -332,6 +379,25 @@
   <section class="about" id="about">
     <h3 class="section-title">About Wol Ruflo Studio</h3>
     <p>We are an architectural firm committed to designing spaces that are inspired by their surroundings, built for people, and made to last. Our work spans residential, commercial, and cultural architecture — always rooted in thoughtful design principles and a deep respect for the environment.</p>
+  </section>
+
+  <section class="latest-news" id="news">
+    <h3 class="section-title">Latest News</h3>
+    <p>Stay updated with our latest achievements, upcoming projects, and studio highlights.</p>
+    <div class="news-cards">
+      <div class="news-card">
+        <h4>Studio Wins Green Design Award</h4>
+        <p>Our eco-housing project has been recognized for sustainability and innovation.</p>
+      </div>
+      <div class="news-card">
+        <h4>New Urban Redevelopment Project</h4>
+        <p>We're excited to lead a major redevelopment in the city center.</p>
+      </div>
+      <div class="news-card">
+        <h4>Wol Ruflo in ArchDigest 2025</h4>
+        <p>Check out our feature in the latest Architectural Digest issue!</p>
+      </div>
+    </div>
   </section>
 
   <section class="contact" id="contact">
