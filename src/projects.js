@@ -76,10 +76,13 @@ function addProjectStyles() {
 }
 
 function removeDynamicSections() {
-  const ids = ['architecture-section', 'interior-section', 'management-section', 'projects-section'];
-  ids.forEach(id => {
-    document.getElementById(id)?.remove();
-  });
+  const ids = [
+    'architecture-top-image', 'architecture-section',
+    'interior-top-image', 'interior-section',
+    'management-top-image', 'management-section',
+    'projects-section'
+  ];
+  ids.forEach(id => document.getElementById(id)?.remove());
 }
 
 function restoreMainSections() {
@@ -147,7 +150,7 @@ function toggleDetails(button) {
   detailBox.style.display = detailBox.style.display === 'block' ? 'none' : 'block';
 }
 
-// Ensure clicking on other nav links restores default sections and removes dynamic content
+// Restore default sections when main nav links are clicked
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
   document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
     removeDynamicSections();
