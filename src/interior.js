@@ -57,7 +57,8 @@ function removeDynamicSections() {
     'interior-section',
     'management-top-image',
     'management-section',
-    'projects-section'
+    'projects-section',
+    'contact-top-image', 'contact-section'
   ];
   idsToRemove.forEach(id => {
     const el = document.getElementById(id);

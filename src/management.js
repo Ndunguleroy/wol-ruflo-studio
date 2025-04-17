@@ -54,7 +54,8 @@ function removeDynamicSections() {
     'architecture-top-image', 'architecture-section',
     'interior-top-image', 'interior-section',
     'management-top-image', 'management-section',
-    'projects-section'
+    'projects-section',
+    'contact-top-image', 'contact-section'
   ];
   ids.forEach(id => document.getElementById(id)?.remove());
 }
