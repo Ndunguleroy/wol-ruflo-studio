@@ -145,8 +145,11 @@ document.getElementById('contact-link')?.addEventListener('click', (e) => {
 });
 
 ['home', 'ourwork', 'about', 'arch-link'].forEach(id => {
-  document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
-    removeDynamicSections();
-    restoreMainSections();
+  document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+    link.addEventListener('click', () => {
+      removeDynamicSections();
+      restoreMainSections();
+    });
   });
 });
+
