@@ -110,8 +110,11 @@ document.getElementById('interior-link')?.addEventListener('click', (e) => {
 
 // Restore when main nav links are clicked
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
-  document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
-    removeDynamicSections();
-    restoreMainSections();
+  document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+    link.addEventListener('click', () => {
+      removeDynamicSections();
+      restoreMainSections();
+    });
   });
 });
+

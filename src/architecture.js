@@ -99,8 +99,11 @@ document.getElementById('arch-link')?.addEventListener('click', (e) => {
 });
 
 ['home', 'ourwork', 'about', 'contact'].forEach(id => {
-  document.querySelector(`a[href="#${id}"]`)?.addEventListener('click', () => {
-    removeDynamicSections();
-    restoreMainSections();
+  document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+    link.addEventListener('click', () => {
+      removeDynamicSections();
+      restoreMainSections();
+    });
   });
 });
+
